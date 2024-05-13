@@ -1,0 +1,19 @@
+import pandas as pd
+import json
+
+# Read CSV file into DataFrame
+csv_file_path = r"C:\Users\fayya\Desktop\Baruch Stuff\Spring 2024\CIS 9440 Data Warehousing and Analytics\Homework 1\CIS9440 -- Aircraft Noise\CIS_9440---SF-Aircraft-Noise--1\Scripts\Aircraft noise output.csv" # Update with your CSV file path
+df = pd.read_csv(csv_file_path)
+
+# Convert DataFrame to JSON format with formatted structure
+json_data = df.to_json(orient="records", indent=4)  # Add indent=4 for formatting
+
+# Print the formatted JSON data (optional)
+print(json_data)
+
+# Write JSON data to a JSON file
+json_file_path = r"C:\Users\fayya\Desktop\Baruch Stuff\Spring 2024\CIS 9440 Data Warehousing and Analytics\Homework 1\CIS9440 -- Aircraft Noise\CIS_9440---SF-Aircraft-Noise--1\Scripts\output.json"  # Specify the path to save the JSON file
+with open(json_file_path, "w") as json_file:
+    json_file.write(json_data)
+
+print(f"CSV data converted to formatted JSON and saved to '{json_file_path}'.")
